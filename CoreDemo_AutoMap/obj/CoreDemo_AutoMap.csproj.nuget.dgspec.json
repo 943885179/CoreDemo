@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\VS学习\\CoreDemo_AutoMap\\CoreDemo_AutoMap.csproj": {}
+    "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoMap\\CoreDemo_AutoMap.csproj": {}
   },
   "projects": {
-    "F:\\VS学习\\CoreDemo_AutoMap\\CoreDemo_AutoMap.csproj": {
+    "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoMap\\CoreDemo_AutoMap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\VS学习\\CoreDemo_AutoMap\\CoreDemo_AutoMap.csproj",
+        "projectUniqueName": "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoMap\\CoreDemo_AutoMap.csproj",
         "projectName": "CoreDemo_AutoMap",
-        "projectPath": "F:\\VS学习\\CoreDemo_AutoMap\\CoreDemo_AutoMap.csproj",
+        "projectPath": "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoMap\\CoreDemo_AutoMap.csproj",
         "packagesPath": "C:\\Users\\JR\\.nuget\\packages\\",
-        "outputPath": "F:\\VS学习\\CoreDemo_AutoMap\\obj\\",
+        "outputPath": "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoMap\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
