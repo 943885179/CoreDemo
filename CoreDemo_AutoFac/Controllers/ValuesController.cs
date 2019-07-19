@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using CoreDemo_AutoFac.Test;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo_AutoFac.Controllers
@@ -10,6 +12,12 @@ namespace CoreDemo_AutoFac.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private IUser _user;
+        public ValuesController(IUser user, IComponentContext componentContext)
+        {
+            //_user = user;
+            _user = componentContext.ResolveNamed<IUser>(typeof(User).Name);
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -19,9 +27,10 @@ namespace CoreDemo_AutoFac.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<string> Get(string name)
         {
-            return "value";
+            var s = _user.GetName(name);
+            return _user.GetName(name);
         }
 
         // POST api/values

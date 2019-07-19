@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\CoreStu\\CoreDemo\\coredemo_autofac\\CoreDemo_AutoFac.csproj": {}
+    "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoFac\\CoreDemo_AutoFac.csproj": {}
   },
   "projects": {
-    "F:\\CoreStu\\CoreDemo\\coredemo_autofac\\CoreDemo_AutoFac.csproj": {
+    "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoFac\\CoreDemo_AutoFac.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\CoreStu\\CoreDemo\\coredemo_autofac\\CoreDemo_AutoFac.csproj",
+        "projectUniqueName": "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoFac\\CoreDemo_AutoFac.csproj",
         "projectName": "CoreDemo_AutoFac",
-        "projectPath": "F:\\CoreStu\\CoreDemo\\coredemo_autofac\\CoreDemo_AutoFac.csproj",
+        "projectPath": "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoFac\\CoreDemo_AutoFac.csproj",
         "packagesPath": "C:\\Users\\JR\\.nuget\\packages\\",
-        "outputPath": "F:\\CoreStu\\CoreDemo\\coredemo_autofac\\obj\\",
+        "outputPath": "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoFac\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +41,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -64,7 +68,7 @@
             },
             "autofac": {
               "target": "Package",
-              "version": "(, )"
+              "version": "[4.9.2, )"
             }
           },
           "imports": [

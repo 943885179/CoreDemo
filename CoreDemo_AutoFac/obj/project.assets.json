@@ -11,6 +11,19 @@
           "lib/netstandard2.0/Autofac.dll": {}
         }
       },
+      "Autofac.Extensions.DependencyInjection/4.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.9.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4476,6 +4489,23 @@
         "lib/netstandard2.0/Autofac.dll",
         "lib/netstandard2.0/Autofac.pdb",
         "lib/netstandard2.0/Autofac.xml"
+      ]
+    },
+    "Autofac.Extensions.DependencyInjection/4.4.0": {
+      "sha512": "tkNVcEVTG+asY338sZQNbWQIoCrb13I6qOxBrVX7aStu7SGskDDyGT0TrqiJdfEB48GbCd04ZcNz86TdD4cIHg==",
+      "type": "package",
+      "path": "autofac.extensions.dependencyinjection/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "autofac.extensions.dependencyinjection.4.4.0.nupkg.sha512",
+        "autofac.extensions.dependencyinjection.nuspec",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.xml"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -12175,11 +12205,12 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "Autofac.Extensions.DependencyInjection >= 4.4.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.7.9",
-      "autofac"
+      "autofac >= 4.9.2"
     ]
   },
   "packageFolders": {
@@ -12189,11 +12220,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\CoreStu\\CoreDemo\\coredemo_autofac\\CoreDemo_AutoFac.csproj",
+      "projectUniqueName": "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoFac\\CoreDemo_AutoFac.csproj",
       "projectName": "CoreDemo_AutoFac",
-      "projectPath": "F:\\CoreStu\\CoreDemo\\coredemo_autofac\\CoreDemo_AutoFac.csproj",
+      "projectPath": "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoFac\\CoreDemo_AutoFac.csproj",
       "packagesPath": "C:\\Users\\JR\\.nuget\\packages\\",
-      "outputPath": "F:\\CoreStu\\CoreDemo\\coredemo_autofac\\obj\\",
+      "outputPath": "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoFac\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12223,6 +12254,10 @@
     "frameworks": {
       "netcoreapp2.2": {
         "dependencies": {
+          "Autofac.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[4.4.0, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
@@ -12246,7 +12281,7 @@
           },
           "autofac": {
             "target": "Package",
-            "version": "(, )"
+            "version": "[4.9.2, )"
           }
         },
         "imports": [
