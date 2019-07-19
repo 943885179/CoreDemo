@@ -1,0 +1,17 @@
+F:\VS学习\CoreDemo_AutoMap\bin\Debug\netcoreapp2.2\appsettings.Development.json
+F:\VS学习\CoreDemo_AutoMap\bin\Debug\netcoreapp2.2\appsettings.json
+F:\VS学习\CoreDemo_AutoMap\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+F:\VS学习\CoreDemo_AutoMap\obj\Debug\netcoreapp2.2\CoreDemo_AutoMap.csproj.CoreCompileInputs.cache
+F:\VS学习\CoreDemo_AutoMap\obj\Debug\netcoreapp2.2\CoreDemo_AutoMap.AssemblyInfoInputs.cache
+F:\VS学习\CoreDemo_AutoMap\obj\Debug\netcoreapp2.2\CoreDemo_AutoMap.AssemblyInfo.cs
+F:\VS学习\CoreDemo_AutoMap\bin\Debug\netcoreapp2.2\CoreDemo_AutoMap.deps.json
+F:\VS学习\CoreDemo_AutoMap\bin\Debug\netcoreapp2.2\CoreDemo_AutoMap.runtimeconfig.json
+F:\VS学习\CoreDemo_AutoMap\bin\Debug\netcoreapp2.2\CoreDemo_AutoMap.runtimeconfig.dev.json
+F:\VS学习\CoreDemo_AutoMap\bin\Debug\netcoreapp2.2\CoreDemo_AutoMap.dll
+F:\VS学习\CoreDemo_AutoMap\bin\Debug\netcoreapp2.2\CoreDemo_AutoMap.pdb
+F:\VS学习\CoreDemo_AutoMap\obj\Debug\netcoreapp2.2\CoreDemo_AutoMap.csprojAssemblyReference.cache
+F:\VS学习\CoreDemo_AutoMap\obj\Debug\netcoreapp2.2\CoreDemo_AutoMap.RazorAssemblyInfo.cache
+F:\VS学习\CoreDemo_AutoMap\obj\Debug\netcoreapp2.2\CoreDemo_AutoMap.RazorAssemblyInfo.cs
+F:\VS学习\CoreDemo_AutoMap\obj\Debug\netcoreapp2.2\CoreDemo_AutoMap.RazorTargetAssemblyInfo.cache
+F:\VS学习\CoreDemo_AutoMap\obj\Debug\netcoreapp2.2\CoreDemo_AutoMap.dll
+F:\VS学习\CoreDemo_AutoMap\obj\Debug\netcoreapp2.2\CoreDemo_AutoMap.pdb

@@ -1,0 +1,17 @@
+F:\VS学习\CoreDemo_Sql\bin\Debug\netcoreapp2.2\appsettings.Development.json
+F:\VS学习\CoreDemo_Sql\bin\Debug\netcoreapp2.2\appsettings.json
+F:\VS学习\CoreDemo_Sql\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+F:\VS学习\CoreDemo_Sql\obj\Debug\netcoreapp2.2\CoreDemo_Sql.csproj.CoreCompileInputs.cache
+F:\VS学习\CoreDemo_Sql\obj\Debug\netcoreapp2.2\CoreDemo_Sql.AssemblyInfoInputs.cache
+F:\VS学习\CoreDemo_Sql\obj\Debug\netcoreapp2.2\CoreDemo_Sql.AssemblyInfo.cs
+F:\VS学习\CoreDemo_Sql\bin\Debug\netcoreapp2.2\CoreDemo_Sql.deps.json
+F:\VS学习\CoreDemo_Sql\bin\Debug\netcoreapp2.2\CoreDemo_Sql.runtimeconfig.json
+F:\VS学习\CoreDemo_Sql\bin\Debug\netcoreapp2.2\CoreDemo_Sql.runtimeconfig.dev.json
+F:\VS学习\CoreDemo_Sql\bin\Debug\netcoreapp2.2\CoreDemo_Sql.dll
+F:\VS学习\CoreDemo_Sql\bin\Debug\netcoreapp2.2\CoreDemo_Sql.pdb
+F:\VS学习\CoreDemo_Sql\obj\Debug\netcoreapp2.2\CoreDemo_Sql.csprojAssemblyReference.cache
+F:\VS学习\CoreDemo_Sql\obj\Debug\netcoreapp2.2\CoreDemo_Sql.RazorAssemblyInfo.cache
+F:\VS学习\CoreDemo_Sql\obj\Debug\netcoreapp2.2\CoreDemo_Sql.RazorAssemblyInfo.cs
+F:\VS学习\CoreDemo_Sql\obj\Debug\netcoreapp2.2\CoreDemo_Sql.RazorTargetAssemblyInfo.cache
+F:\VS学习\CoreDemo_Sql\obj\Debug\netcoreapp2.2\CoreDemo_Sql.dll
+F:\VS学习\CoreDemo_Sql\obj\Debug\netcoreapp2.2\CoreDemo_Sql.pdb
