@@ -1,0 +1,9 @@
+F:\CoreStu\CoreDemo\Domain\bin\Debug\netcoreapp2.2\Domain.deps.json
+F:\CoreStu\CoreDemo\Domain\bin\Debug\netcoreapp2.2\Domain.dll
+F:\CoreStu\CoreDemo\Domain\obj\Debug\netcoreapp2.2\Domain.csproj.CoreCompileInputs.cache
+F:\CoreStu\CoreDemo\Domain\obj\Debug\netcoreapp2.2\Domain.AssemblyInfoInputs.cache
+F:\CoreStu\CoreDemo\Domain\obj\Debug\netcoreapp2.2\Domain.AssemblyInfo.cs
+F:\CoreStu\CoreDemo\Domain\obj\Debug\netcoreapp2.2\Domain.csprojAssemblyReference.cache
+F:\CoreStu\CoreDemo\Domain\bin\Debug\netcoreapp2.2\Domain.pdb
+F:\CoreStu\CoreDemo\Domain\obj\Debug\netcoreapp2.2\Domain.dll
+F:\CoreStu\CoreDemo\Domain\obj\Debug\netcoreapp2.2\Domain.pdb

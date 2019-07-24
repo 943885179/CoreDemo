@@ -1,22 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Autofac;
+using BLLS;
 using CoreDemo_AutoFac.Test;
+using Domain;
+using Interfaces;
 using Microsoft.AspNetCore.Mvc;
-
 namespace CoreDemo_AutoFac.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private IUser _user;
-        public ValuesController(IUser user, IComponentContext componentContext)
+        IAnimal animal;
+        IAnimal cat;
+        IAnimal dog;
+        public ValuesController(IAnimal _animal, IComponentContext componentContext)
         {
-            //_user = user;
-            _user = componentContext.ResolveNamed<IUser>(typeof(User).Name);
+            animal = _animal;
+            cat = componentContext.ResolveNamed<IAnimal>(typeof(Cat).Name);
+            dog = componentContext.ResolveNamed<IAnimal>(typeof(Cat).Name);
         }
         // GET api/values
         [HttpGet]
@@ -29,8 +31,9 @@ namespace CoreDemo_AutoFac.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(string name)
         {
-            var s = _user.GetName(name);
-            return _user.GetName(name);
+            var s = animal.GetArg(10);
+            //var dd=dog.Name+cat.Name;
+            return dog.Name;
         }
 
         // POST api/values

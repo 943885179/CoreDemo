@@ -4,6 +4,67 @@
     "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoFac\\CoreDemo_AutoFac.csproj": {}
   },
   "projects": {
+    "F:\\CoreStu\\CoreDemo\\BLLS\\BLLS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\CoreStu\\CoreDemo\\BLLS\\BLLS.csproj",
+        "projectName": "BLLS",
+        "projectPath": "F:\\CoreStu\\CoreDemo\\BLLS\\BLLS.csproj",
+        "packagesPath": "C:\\Users\\JR\\.nuget\\packages\\",
+        "outputPath": "F:\\CoreStu\\CoreDemo\\BLLS\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\JR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "F:\\CoreStu\\CoreDemo\\Interfaces\\Interfaces.csproj": {
+                "projectPath": "F:\\CoreStu\\CoreDemo\\Interfaces\\Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
     "F:\\CoreStu\\CoreDemo\\CoreDemo_AutoFac\\CoreDemo_AutoFac.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -29,7 +90,17 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
-            "projectReferences": {}
+            "projectReferences": {
+              "F:\\CoreStu\\CoreDemo\\BLLS\\BLLS.csproj": {
+                "projectPath": "F:\\CoreStu\\CoreDemo\\BLLS\\BLLS.csproj"
+              },
+              "F:\\CoreStu\\CoreDemo\\Domain\\Domain.csproj": {
+                "projectPath": "F:\\CoreStu\\CoreDemo\\Domain\\Domain.csproj"
+              },
+              "F:\\CoreStu\\CoreDemo\\Interfaces\\Interfaces.csproj": {
+                "projectPath": "F:\\CoreStu\\CoreDemo\\Interfaces\\Interfaces.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -69,6 +140,136 @@
             "autofac": {
               "target": "Package",
               "version": "[4.9.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "F:\\CoreStu\\CoreDemo\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\CoreStu\\CoreDemo\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "F:\\CoreStu\\CoreDemo\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\JR\\.nuget\\packages\\",
+        "outputPath": "F:\\CoreStu\\CoreDemo\\Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\JR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
+            "Autofac": {
+              "target": "Package",
+              "version": "[4.9.2, )"
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "F:\\CoreStu\\CoreDemo\\Interfaces\\Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\CoreStu\\CoreDemo\\Interfaces\\Interfaces.csproj",
+        "projectName": "Interfaces",
+        "projectPath": "F:\\CoreStu\\CoreDemo\\Interfaces\\Interfaces.csproj",
+        "packagesPath": "C:\\Users\\JR\\.nuget\\packages\\",
+        "outputPath": "F:\\CoreStu\\CoreDemo\\Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\JR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
             }
           },
           "imports": [

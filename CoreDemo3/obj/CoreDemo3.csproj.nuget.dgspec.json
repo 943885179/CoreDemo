@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\VS学习\\CoreDemo3\\coredemo3.csproj": {}
+    "F:\\CoreStu\\CoreDemo\\CoreDemo3\\coredemo3.csproj": {}
   },
   "projects": {
-    "F:\\VS学习\\CoreDemo3\\coredemo3.csproj": {
+    "F:\\CoreStu\\CoreDemo\\CoreDemo3\\coredemo3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\VS学习\\CoreDemo3\\coredemo3.csproj",
+        "projectUniqueName": "F:\\CoreStu\\CoreDemo\\CoreDemo3\\coredemo3.csproj",
         "projectName": "coredemo3",
-        "projectPath": "F:\\VS学习\\CoreDemo3\\coredemo3.csproj",
+        "projectPath": "F:\\CoreStu\\CoreDemo\\CoreDemo3\\coredemo3.csproj",
         "packagesPath": "C:\\Users\\JR\\.nuget\\packages\\",
-        "outputPath": "F:\\VS学习\\CoreDemo3\\obj\\",
+        "outputPath": "F:\\CoreStu\\CoreDemo\\CoreDemo3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -29,11 +29,7 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
-            "projectReferences": {
-              "F:\\VS学习\\EFCore\\EFCore.csproj": {
-                "projectPath": "F:\\VS学习\\EFCore\\EFCore.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -77,79 +73,6 @@
           "warn": true,
           "frameworkReferences": [
             "Microsoft.AspNetCore.App",
-            "Microsoft.NETCore.App"
-          ]
-        }
-      }
-    },
-    "F:\\VS学习\\EFCore\\EFCore.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "F:\\VS学习\\EFCore\\EFCore.csproj",
-        "projectName": "EFCore",
-        "projectPath": "F:\\VS学习\\EFCore\\EFCore.csproj",
-        "packagesPath": "C:\\Users\\JR\\.nuget\\packages\\",
-        "outputPath": "F:\\VS学习\\EFCore\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\JR\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.0": {
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.0": {
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[2.2.6, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "target": "Package",
-              "version": "[2.2.6, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[2.2.6, )"
-            },
-            "Microsoft.NETCore.App": {
-              "include": "None",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.0.0-preview6-27804-01, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": [
             "Microsoft.NETCore.App"
           ]
         }

@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using BLLS;
 using CoreDemo_AutoFac.Test;
+using Domain;
+using Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,10 +29,10 @@ namespace CoreDemo_AutoFac
         }
 
         public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddMemoryCache();//使用内存缓存
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             return RegisterAutofac(services);//注册Autofac
         }
@@ -51,14 +55,18 @@ namespace CoreDemo_AutoFac
             //重写Autofac管道Load方法，在这里注册注入
             protected override void Load(ContainerBuilder builder)
             {
+                //注册Samoyed指定为IDog实现
+                //builder.RegisterType<Cat>().As<IAnimal>();
+                //builder.RegisterType<Dog>().As<IAnimal>();
+                var ss = typeof(Startup).Assembly;
+                var ts = GetAssemblyByName("BLLS");
+                builder.RegisterAssemblyTypes(typeof(Startup).Assembly).AsImplementedInterfaces(); //这里的AsImplementedInterfaces表示以接口的形式注册
 
-                //builder.RegisterAssemblyTypes(GetAssemblyByName("CoreDemo_AutoFac")).AsImplementedInterfaces();
-                //注册Service中的对象,Service中的类要以Service结尾，否则注册失败
-               // builder.RegisterAssemblyTypes(GetAssemblyByName("WEIXIAO.Service")).Where(a => a.Name.EndsWith("Service")).AsImplementedInterfaces();
-                //注册Repository中的对象,Repository中的类要以Repository结尾，否则注册失败
-                // builder.RegisterAssemblyTypes(GetAssemblyByName("WEIXIAO.Repository")).Where(a => a.Name.EndsWith("Repository")).AsImplementedInterfaces();
                 //单独注册
-                builder.RegisterType<User>().Named<IUser>(typeof(User).Name);
+                builder.RegisterType<Cat>().Named<IAnimal>(typeof(Cat).Name);
+                builder.RegisterType<Dog>().Named<IAnimal>(typeof(Dog).Name);
+
+                builder.RegisterAssemblyTypes(GetAssemblyByName("BLLS")).Where(a => a.Name.EndsWith("Service")).AsImplementedInterfaces();
             }
             /// <summary>
             /// 根据程序集名称获取程序集

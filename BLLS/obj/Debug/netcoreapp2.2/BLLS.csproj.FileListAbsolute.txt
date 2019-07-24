@@ -1,0 +1,12 @@
+F:\CoreStu\CoreDemo\BLLS\bin\Debug\netcoreapp2.2\BLLS.deps.json
+F:\CoreStu\CoreDemo\BLLS\bin\Debug\netcoreapp2.2\BLLS.dll
+F:\CoreStu\CoreDemo\BLLS\bin\Debug\netcoreapp2.2\BLLS.pdb
+F:\CoreStu\CoreDemo\BLLS\bin\Debug\netcoreapp2.2\Interfaces.dll
+F:\CoreStu\CoreDemo\BLLS\bin\Debug\netcoreapp2.2\Interfaces.pdb
+F:\CoreStu\CoreDemo\BLLS\obj\Debug\netcoreapp2.2\BLLS.csprojAssemblyReference.cache
+F:\CoreStu\CoreDemo\BLLS\obj\Debug\netcoreapp2.2\BLLS.csproj.CoreCompileInputs.cache
+F:\CoreStu\CoreDemo\BLLS\obj\Debug\netcoreapp2.2\BLLS.AssemblyInfoInputs.cache
+F:\CoreStu\CoreDemo\BLLS\obj\Debug\netcoreapp2.2\BLLS.AssemblyInfo.cs
+F:\CoreStu\CoreDemo\BLLS\obj\Debug\netcoreapp2.2\BLLS.csproj.CopyComplete
+F:\CoreStu\CoreDemo\BLLS\obj\Debug\netcoreapp2.2\BLLS.dll
+F:\CoreStu\CoreDemo\BLLS\obj\Debug\netcoreapp2.2\BLLS.pdb
