@@ -25,9 +25,9 @@ namespace CoreDemo3
         public void ConfigureServices(IServiceCollection services)
         {
             var ss = Configuration.GetConnectionString("SqlServerConnection");
-            services.AddDbContext<EFCore.ApiDBContent>(options=>{
-                options.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection"));
-            });
+            //services.AddDbContext<EFCore.ApiDBContent>(options=>{
+            //    options.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection"));
+            //});
             services.AddControllers();
         }
 
