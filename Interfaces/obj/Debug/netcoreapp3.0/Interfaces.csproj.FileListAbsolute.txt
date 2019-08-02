@@ -1,9 +1,0 @@
-F:\CoreStu\CoreDemo\Interfaces\bin\Debug\netcoreapp3.0\Interfaces.deps.json
-F:\CoreStu\CoreDemo\Interfaces\bin\Debug\netcoreapp3.0\Interfaces.dll
-F:\CoreStu\CoreDemo\Interfaces\bin\Debug\netcoreapp3.0\Interfaces.pdb
-F:\CoreStu\CoreDemo\Interfaces\obj\Debug\netcoreapp3.0\Interfaces.csprojAssemblyReference.cache
-F:\CoreStu\CoreDemo\Interfaces\obj\Debug\netcoreapp3.0\Interfaces.csproj.CoreCompileInputs.cache
-F:\CoreStu\CoreDemo\Interfaces\obj\Debug\netcoreapp3.0\Interfaces.AssemblyInfoInputs.cache
-F:\CoreStu\CoreDemo\Interfaces\obj\Debug\netcoreapp3.0\Interfaces.AssemblyInfo.cs
-F:\CoreStu\CoreDemo\Interfaces\obj\Debug\netcoreapp3.0\Interfaces.dll
-F:\CoreStu\CoreDemo\Interfaces\obj\Debug\netcoreapp3.0\Interfaces.pdb

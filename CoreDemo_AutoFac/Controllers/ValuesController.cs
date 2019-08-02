@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
 using Autofac;
-using BLLS;
 using CoreDemo_AutoFac.Test;
-using Domain;
-using Interfaces;
 using Microsoft.AspNetCore.Mvc;
 namespace CoreDemo_AutoFac.Controllers
 {
@@ -26,7 +23,6 @@ namespace CoreDemo_AutoFac.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(string name)

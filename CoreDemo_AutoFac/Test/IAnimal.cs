@@ -35,5 +35,4 @@ namespace CoreDemo_AutoFac.Test
             return arg;
         }
     }
-
 }
