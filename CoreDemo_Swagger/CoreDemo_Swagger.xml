@@ -28,17 +28,5 @@
             </summary>
             <param name="expression">表达式</param>
         </member>
-        <member name="T:Cs.Demo">
-            <summary>
-            测试
-            </summary>
-        </member>
-        <member name="M:Cs.Demo.Name(System.String)">
-            <summary>
-            测试的姓名
-            </summary>
-            <param name="s">姓名</param>
-            <returns></returns>
-        </member>
     </members>
 </doc>

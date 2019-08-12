@@ -34,7 +34,29 @@ namespace CoreDemo_Swagger.Controllers
         public ActionResult<string> Get(int id)
         {
             var arifExpr = CalcByDataTable("2 * (2 + 3)");
+            string[] text = { "Albert was here", "Burke slept late", "Connor is happy" };
 
+            var tokens = text.Select(s => s.Split(' '));
+
+            foreach (string[] line in tokens)
+            {
+
+                foreach (string token in line)
+                {
+
+                    Console.Write("{0}.", token);
+                }
+            }
+
+
+
+            string[] texts = { "Albert was here", "Burke slept late", "Connor is happy" };
+            var tokenss = text.SelectMany(s => s.Split(' '));
+            foreach (string token in tokenss)
+            {
+                Console.Write("{0}.", token);
+
+            }
             return id.ToString();
         }
         /// <summary>
@@ -43,7 +65,7 @@ namespace CoreDemo_Swagger.Controllers
         /// <param name="expression">表达式</param>
         internal static float CalcByDataTable(string expression)
         {
-            object result = new DataTable().Compute(expression, "");
+            object result = new DataTable().Compute(expression, "123");
             return float.Parse(result + "");
         }
         /*private object EvalExpress(string sExpression)
