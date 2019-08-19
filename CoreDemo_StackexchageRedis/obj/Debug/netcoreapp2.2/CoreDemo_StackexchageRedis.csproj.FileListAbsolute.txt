@@ -1,0 +1,16 @@
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\bin\Debug\netcoreapp2.2\appsettings.Development.json
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\bin\Debug\netcoreapp2.2\appsettings.json
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\bin\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.deps.json
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\bin\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.runtimeconfig.json
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\bin\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.runtimeconfig.dev.json
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\bin\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.dll
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\bin\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.pdb
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.csproj.CoreCompileInputs.cache
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.RazorAssemblyInfo.cache
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.RazorAssemblyInfo.cs
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.AssemblyInfoInputs.cache
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.AssemblyInfo.cs
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.RazorTargetAssemblyInfo.cache
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.dll
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.pdb
