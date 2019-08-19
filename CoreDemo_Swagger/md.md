@@ -64,3 +64,6 @@ services.AddSwaggerGen(options =>
                 options.IncludeXmlComments(xmlPath);
             });
  ```
+>常见操作，在注释里加`<remarks>这是方法描述</remarks>`会显示在swaggerui上
+
+>[参考链接](https://www.cnblogs.com/chenjunsheep/p/8530380.html)

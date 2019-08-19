@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo_Swagger.Controllers
@@ -20,6 +21,7 @@ namespace CoreDemo_Swagger.Controllers
         /// <returns></returns>
         // GET api/values
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
@@ -28,11 +30,13 @@ namespace CoreDemo_Swagger.Controllers
         /// 测试get path
         /// </summary>
         /// <param name="id">编号</param>
+        /// <remarks>当前方法根据ID获取一个值</remarks>
         /// <returns></returns>
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
+            var x = HttpContext.Request;
             var arifExpr = CalcByDataTable("2 * (2 + 3)");
             string[] text = { "Albert was here", "Burke slept late", "Connor is happy" };
 
@@ -43,7 +47,6 @@ namespace CoreDemo_Swagger.Controllers
 
                 foreach (string token in line)
                 {
-
                     Console.Write("{0}.", token);
                 }
             }

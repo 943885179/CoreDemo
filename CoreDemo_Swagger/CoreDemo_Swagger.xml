@@ -20,6 +20,7 @@
             测试get path
             </summary>
             <param name="id">编号</param>
+            <remarks>当前方法根据ID获取一个值</remarks>
             <returns></returns>
         </member>
         <member name="M:CoreDemo_Swagger.Controllers.ValuesController.CalcByDataTable(System.String)">
