@@ -14,3 +14,4 @@ F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_
 F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.RazorTargetAssemblyInfo.cache
 F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.dll
 F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.pdb
+F:\CoreStu\CoreDemo\CoreDemo_StackexchageRedis\obj\Debug\netcoreapp2.2\CoreDemo_StackexchageRedis.csprojAssemblyReference.cache

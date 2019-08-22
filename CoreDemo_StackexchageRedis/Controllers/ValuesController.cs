@@ -40,8 +40,12 @@ namespace CoreDemo_StackexchageRedis.Controllers
         [HttpGet("StringGet/{key}")]
         public async Task<string> StringGet(string key)
         {
-            return await  redisDataBase.StringGetAsync(key);
+            return await redisDataBase.StringGetAsync(key);
         }
-
+        [HttpGet("ListSet/{key}/{value}")]
+        public async Task<long> ListSet(string key, string value)
+        {
+            return redisDataBase.ListLeftPush(key, value);
+        }
     }
 }
