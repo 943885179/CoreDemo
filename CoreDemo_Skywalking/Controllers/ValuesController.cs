@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CoreDemo_NPOI.Controllers
+namespace CoreDemo_Skywalking.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -15,28 +14,9 @@ namespace CoreDemo_NPOI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            NPOIUtil.Write();
-            // var e = test();
-            //var str = "";
-            //try
-            //{
-
-            //    throw new Exception("ZHESHICUOWU");
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    str = ex.Message + ":::" + ex.InnerException + ":::" + ex.Data + ":::" + ex.HelpLink + ":::";
-            //}
             return new string[] { "value1", "value2" };
         }
-        public IEnumerable<int> test()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                yield return i;
-            }
-        }
+
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
