@@ -6,7 +6,7 @@
   "ServiceName": "ServiceA",
   "ServiceIP": "192.168.1.60",
   "ServicePort": 8010, 
-  "ServiceHealthCheck": "http://192.168.1.60:51639/api/Health",//需要添加回调控制器HealthController
+  "ServiceHealthCheck": "http://192.168.1.60:8010/api/Health",//需要添加回调控制器HealthController
   "ConsulAddress": "http://192.168.1.60:8500" //consul服务监听地址
  ```
  # 添加回调控制器HealthController
