@@ -1,3 +1,4 @@
+[TOC]
 # docker 安装consul [安装教程](https://github.com/943885179/dockerStu/blob/master/docker_consul.md)
 # 创建.net core api 项目 (我只创建了一个，修复部分返回值后在iis部署)：vs2019直接启动的端口指定局域网ip和本地127.0.0.1ip有错误，必须要用locallhost,发布到iis上可以指定域名ip
 # 添加appsettings.json
@@ -141,4 +142,7 @@
 # 查看服务是否注册[consul UI地址查看](http://127.0.0.1:8500/ui/dc1/services)
 # [查看该服务的注册信息](http://127.0.0.1:8500/v1/catalog/service/ServiceA)  【 ServiceA 为服务名称】
 
-# 测试调用 http://192.168.1.60:8010/api/values/c(这个具体看你自己的测试地址)
+# 测试调用 http://192.168.1.60:8010/api/values/c(这个具体看你自己的测试
+# 学习时遇到其他问题
+ - post请求参数是string或int时候不加[formbody]的时候在postman发起必须是params参数（即需要?后面添加参数例如?=xxx或者?value=xxx），一个的话不用加参数名称或者是参数名称，两个则会报错，不知道微软的设计思路，两个以上建议用实体
+ - 必须发布到iis(个人问题吧，不发布iis用ip访问会报错，但是服务注册上去后就算是localhost也会解析成127.0.0.1,所以会报错)
