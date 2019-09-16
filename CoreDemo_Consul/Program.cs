@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace CoreDemo_Logging
+namespace CoreDemo_Consul
 {
     public class Program
     {
@@ -19,10 +19,6 @@ namespace CoreDemo_Logging
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-            .ConfigureLogging(option=> {
-                option.ClearProviders();
-                option.AddConsole();
-            });
+                .UseStartup<Startup>();
     }
 }

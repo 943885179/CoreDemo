@@ -12220,11 +12220,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\VS学习\\CoreDemo_Sql\\CoreDemo_Sql.csproj",
+      "projectUniqueName": "F:\\CoreStu\\CoreDemo\\CoreDemo_Sql\\CoreDemo_Sql.csproj",
       "projectName": "CoreDemo_Sql",
-      "projectPath": "F:\\VS学习\\CoreDemo_Sql\\CoreDemo_Sql.csproj",
+      "projectPath": "F:\\CoreStu\\CoreDemo\\CoreDemo_Sql\\CoreDemo_Sql.csproj",
       "packagesPath": "C:\\Users\\JR\\.nuget\\packages\\",
-      "outputPath": "F:\\VS学习\\CoreDemo_Sql\\obj\\",
+      "outputPath": "F:\\CoreStu\\CoreDemo\\CoreDemo_Sql\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

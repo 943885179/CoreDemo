@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace CoreDemo_Logging.Controllers
 {
@@ -10,36 +11,17 @@ namespace CoreDemo_Logging.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
+        ILogger<ValuesController> logger;
+        //构造函数注入Logger
+        public ValuesController(ILogger<ValuesController> logger)
+        {
+            this.logger = logger;
+        }
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<string> Get()
         {
+            logger.LogWarning("Warning");
             return new string[] { "value1", "value2" };
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
