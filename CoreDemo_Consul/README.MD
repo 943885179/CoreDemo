@@ -6,7 +6,7 @@
   "ServiceName": "ServiceA",
   "ServiceIP": "192.168.1.60",
   "ServicePort": 8010, 
-  "ServiceHealthCheck": "http://192.168.1.60:51639/api/Health",//需要添加回调控制器HealthController
+  "ServiceHealthCheck": "http://192.168.1.60:8010/api/Health",//需要添加回调控制器HealthController
   "ConsulAddress": "http://192.168.1.60:8500" //consul服务监听地址
  ```
  # 添加回调控制器HealthController
@@ -146,3 +146,30 @@
 # 学习时遇到其他问题
  - post请求参数是string或int时候不加[formbody]的时候在postman发起必须是params参数（即需要?后面添加参数例如?=xxx或者?value=xxx），一个的话不用加参数名称或者是参数名称，两个则会报错，不知道微软的设计思路，两个以上建议用实体
  - 必须发布到iis(个人问题吧，不发布iis用ip访问会报错，但是服务注册上去后就算是localhost也会解析成127.0.0.1,所以会报错)
+ - 服务注册也可以使用put方法调用`http://localhost:8500/v1/catalog/register`这个接口
+   + 参数为
+      ```json
+        {
+            "Datacenter": "dc1",   
+            "Node": "foobar",      
+            "Address": "192.168.10.10",  
+            "Service": {             //注册的服务信息
+                "ID": "redis1",
+                "Service": "redis",
+                "Tags": [
+                "primary",
+                "v1"
+                ],
+                "Address": "127.0.0.1",
+                "Port": 8000
+            },
+            "Check": {              //注册健康检查
+                "Node": "foobar",
+                "CheckID": "service:redis1",
+                "Name": "Redis health check",
+                "Notes": "Script based health check",
+                "Status": "passing",
+                "ServiceID": "redis1"
+            }
+        }
+      ```
