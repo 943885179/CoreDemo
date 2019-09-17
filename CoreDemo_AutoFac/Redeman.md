@@ -1,7 +1,7 @@
 >下载Nuget包 Autofac 和 Autofac.Extensions.DependencyInjection
 
 >添加接口和实现类
-  ```
+  ```csharp
     public interface IAnimal
     {
         /// <summary>
@@ -34,7 +34,7 @@
     }
   ```
 > 修改startup.cs 方法中的ConfigureServices 返回IServiceProvider
-  ```
+  ```csharp
    public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMemoryCache();//使用内存缓存
@@ -43,7 +43,7 @@
         }
   ```
 > 实例化容器且用Autofac替换.net Core自带容器
- ```
+ ```csharp
          private IServiceProvider RegisterAutofac(IServiceCollection services)
         {
             //实例化Autofac容器
@@ -59,7 +59,7 @@
         }
  ```
 >将实体注入容器中
- ```
+ ```csharp
    public class AutofacModuleRegister : Autofac.Module
         {
             //重写Autofac管道Load方法，在这里注册注入
@@ -92,7 +92,7 @@
  - 多个实现类继承同一个接口需要单独注册 `builder.RegisterType<Cat>().Named<IAnimal>(typeof(Cat).Name);`
 >使用
  - 不包含多继承的
-    ```
+    ```csharp
     public class ValuesController : ControllerBase
     {
         IAnimal animal;
@@ -111,7 +111,7 @@
     }
     ```
  - 包含多继承的
-    ```
+    ```csharp
     public class ValuesController : ControllerBase
     {
         IAnimal cat;
@@ -130,4 +130,3 @@
     }
     ```
 >其他资源 [中文文档](https://autofaccn.readthedocs.io/zh/latest/)
-
