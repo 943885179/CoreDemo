@@ -34,8 +34,8 @@ namespace OcelotServer
             services.AddAuthentication()
                 .AddJwtBearer(authenticationProviderKey, x =>
                 {
-                   // x.Authority = "test";
-                   // x.Audience = "test";
+                    x.Authority = "test";
+                    x.Audience = "test";
                 });
             services.AddOcelot() //基础调用(Ocelot)
               .AddConsul()//添加Consul服务注册(需要添加Nuget Ocelot.Provider.Consul)
