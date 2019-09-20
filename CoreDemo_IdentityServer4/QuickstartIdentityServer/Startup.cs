@@ -23,6 +23,7 @@ namespace QuickstartIdentityServer
                 .AddInMemoryApiResources(Config.GetApis())
                 .AddInMemoryClients(Config.GetClients())
                 .AddTestUsers(Config.GetTestUsers());
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,10 +34,7 @@ namespace QuickstartIdentityServer
                 app.UseDeveloperExceptionPage();
             }
             app.UseIdentityServer();
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseMvc();
         }
     }
 }

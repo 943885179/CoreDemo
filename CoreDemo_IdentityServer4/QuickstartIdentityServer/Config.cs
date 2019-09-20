@@ -89,7 +89,7 @@ namespace QuickstartIdentityServer
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
                 new IdentityResources.Email(),
-                new IdentityResources.Phone(),
+                new IdentityResources.Phone()
             };
         }
     }
