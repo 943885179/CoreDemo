@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>abed3cdd-fa97-4b2e-8af2-ae82f304b538</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="QuickstartIdentityServer\**" />
+    <Content Remove="QuickstartIdentityServer\**" />
+    <EmbeddedResource Remove="QuickstartIdentityServer\**" />
+    <None Remove="QuickstartIdentityServer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="identityserver4" Version="2.5.3" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="QuickstartIdentityServer\QuickstartIdentityServer.csproj" />
+  </ItemGroup>
+
+</Project>
