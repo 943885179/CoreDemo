@@ -58,11 +58,12 @@
  - 启动项目查看是否成功（会出现你所有的配置信息） [https://localhost:5001/.well-known/openid-configuration](https://localhost:5001/.well-known/openid-configuration)
  
  - 上一步有个`token_endpoint`,postman调用可以获取token，调用方式post,url:"https://localhost:5001/connect/token",from-data参数
-    |参数名称|参数值|备注|
-    |--|--|--|
-    |client_id|client|config.cs配置的ClientId|
-    |client_secret|secret|config.cs配置的ClientSecrets|
-    |grant_type|client_credentials|grant_types_supported类型|
+
+|参数名称|参数值|备注|
+|--|--|--|
+|client_id|client|config.cs配置的ClientId|
+|client_secret|secret|config.cs配置的ClientSecrets|
+|grant_type|client_credentials|grant_types_supported类型|
 ### 配置API接口项目
  - Nuget `IdentityServer4.AccessTokenValidation` 也可以不用（下面没有用到）
  - 添加权限认证
