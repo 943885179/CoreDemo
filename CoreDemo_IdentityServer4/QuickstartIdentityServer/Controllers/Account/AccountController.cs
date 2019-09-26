@@ -10,7 +10,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace QuickstartIdentityServer.Controllers
@@ -254,50 +256,50 @@ namespace QuickstartIdentityServer.Controllers
         /// <summary>
         /// 退出页面显示
         /// </summary>
-        [HttpGet]
-        public async Task<IActionResult> Logout(string logoutId)
-        {
+        //[HttpGet]
+        //public async Task<IActionResult> Logout(string logoutId)
+        //{
 
-            var vm = await _account.BuildLogoutViewModelAsync(logoutId);
+        //    var vm = await _account.BuildLogoutViewModelAsync(logoutId);
 
-            if (vm.ShowLogoutPrompt == false)
-            {
-                //配置是否需要退出确认提示
-                return await Logout(vm);
-            }
+        //    if (vm.ShowLogoutPrompt == false)
+        //    {
+        //        //配置是否需要退出确认提示
+        //        return await Logout(vm);
+        //    }
 
-            return View(vm);
-        }
+        //    return View(vm);
+        //}
 
         /// <summary>
         /// 退出回调用页面
         /// </summary>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Logout(LogoutInputModel model)
-        {
-            var vm = await _account.BuildLoggedOutViewModelAsync(model.LogoutId);
-            var user = HttpContext.User;
-            if (user?.Identity.IsAuthenticated == true)
-            {
-                //删除本地授权Cookies
-                await HttpContext.SignOutAsync();
-                await _events.RaiseAsync(new UserLogoutSuccessEvent(user.GetSubjectId(), user.GetName()));
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Logout(LogoutInputModel model)
+        //{
+        //    var vm = await BuildLoggedOutViewModelAsync(model.LogoutId);
+        //    var user = HttpContext.User;
+        //    if (user?.Identity.IsAuthenticated == true)
+        //    {
+        //        //删除本地授权Cookies
+        //        await HttpContext.SignOutAsync();
+        //        await _events.RaiseAsync(new UserLogoutSuccessEvent(user.GetSubjectId(), user.GetName()));
+        //    }
 
-            // 检查是否需要在上游身份提供程序上触发签名
-            if (vm.TriggerExternalSignout)
-            {
-                // 构建一个返回URL，以便上游提供者将重定向回
-                // 在用户注销后给我们。这使我们能够
-                // 完成单点签出处理。
-                string url = Url.Action("Logout", new { logoutId = vm.LogoutId });
-                // 这将触发重定向到外部提供者，以便签出
-                return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
-            }
+        //    // 检查是否需要在上游身份提供程序上触发签名
+        //    if (vm.TriggerExternalSignout)
+        //    {
+        //        // 构建一个返回URL，以便上游提供者将重定向回
+        //        // 在用户注销后给我们。这使我们能够
+        //        // 完成单点签出处理。
+        //        string url = Url.Action("Logout", new { logoutId = vm.LogoutId });
+        //        // 这将触发重定向到外部提供者，以便签出
+        //        return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
+        //    }
 
-            return View("LoggedOut", vm);
-        }
+        //    return View("LoggedOut", vm);
+        //}
 
         #endregion
 
@@ -307,21 +309,21 @@ namespace QuickstartIdentityServer.Controllers
         /// <summary>
         /// Show logout page
         /// </summary>
-        [HttpGet]
-        public async Task<IActionResult> Logout(string logoutId)
-        {
-            // build a model so the logout page knows what to display
-            var vm = await BuildLogoutViewModelAsync(logoutId);
+        //[HttpGet]
+        //public async Task<IActionResult> Logout(string logoutId)
+        //{
+        //    // build a model so the logout page knows what to display
+        //    var vm = await BuildLogoutViewModelAsync(logoutId);
 
-            if (vm.ShowLogoutPrompt == false)
-            {
-                // if the request for logout was properly authenticated from IdentityServer, then
-                // we don't need to show the prompt and can just log the user out directly.
-                return await Logout(vm);
-            }
+        //    if (vm.ShowLogoutPrompt == false)
+        //    {
+        //        // if the request for logout was properly authenticated from IdentityServer, then
+        //        // we don't need to show the prompt and can just log the user out directly.
+        //        return await Logout(vm);
+        //    }
 
-            return View(vm);
-        }
+        //    return View(vm);
+        //}
 
         /// <summary>
         /// Handle logout page postback
