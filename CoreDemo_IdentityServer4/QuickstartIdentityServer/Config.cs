@@ -4,6 +4,7 @@ using IdentityServer4.Test;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace QuickstartIdentityServer
@@ -55,10 +56,10 @@ namespace QuickstartIdentityServer
                     AllowedGrantTypes=GrantTypes.Implicit,//OpenID Connect 简化模式（implicit）
                     ClientSecrets={ new Secret("implicitSecrets".Sha256()) },
                     RequireConsent=true,   //用户选择同意认证授权
-                    RedirectUris={ "http://localhost:5001/signin-oidc" }, //指定允许的URI返回令牌或授权码(我们的客户端地址)
-                    PostLogoutRedirectUris={ "http://localhost:5001/signout-callback-oidc" },//注销后重定向地址 
+                    RedirectUris={ "https://localhost:5008/signin-oidc" }, //指定允许的URI返回令牌或授权码(我们的客户端地址)
+                    PostLogoutRedirectUris={ "https://localhost:5008/signout-callback-oidc" },//注销后重定向地址 
                     LogoUri="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3298365745,618961144&fm=27&gp=0.jpg",
-                  // scopes that client has access to
+                  ////运行访问的资源
                   AllowedScopes = {                       //客户端允许访问个人信息资源的范围
                       IdentityServerConstants.StandardScopes.Profile,
                       IdentityServerConstants.StandardScopes.OpenId,
@@ -74,12 +75,24 @@ namespace QuickstartIdentityServer
         public static List<TestUser> GetTestUsers()
         {
             return new List<TestUser>() {
-                new TestUser()
+               /*  new TestUser()
                 {
                     SubjectId="1",
                     Username="weixiao",
                     Password="123"
-                }
+                },*/
+                new TestUser
+                {
+                    SubjectId = "2",
+                    Username = "admin",
+                    Password = "123456",
+
+                    Claims = new List<Claim>
+                    {
+                        new Claim("name", "adminssss"),
+                        new Claim("website", "https://www.cnblogs.com/linezero")
+                    }
+                },
             };
         }
         public static IEnumerable<IdentityResource> GetIdentityResources()
