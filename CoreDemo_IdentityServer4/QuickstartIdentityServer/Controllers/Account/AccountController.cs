@@ -31,11 +31,11 @@ namespace QuickstartIdentityServer.Controllers
         private readonly IClientStore _clientStore;
         private readonly IAuthenticationSchemeProvider _schemeProvider;
         private readonly IEventService _events;
-       //  DI ÓÃ»§·þÎñÏà¹Ø½Ó¿Ú ÒÔ¼° IdentityServer4Ïà¹Ø·þÎñ¼¸¿Ú  IOC´¦Àí
+       //  DI ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø½Ó¿ï¿½ ï¿½Ô¼ï¿½ IdentityServer4ï¿½ï¿½Ø·ï¿½ï¿½ñ¼¸¿ï¿½  IOCï¿½ï¿½ï¿½ï¿½
         public AccountController( 
-            //·þÎñÉèÖÃ ÕâÀï×¢Èë ÓÃ»§·þÎñ½»»¥Ïà¹Ø½Ó¿Ú È»Å¼
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ñ½»»ï¿½ï¿½ï¿½Ø½Ó¿ï¿½ È»Å¼
             IIdentityServerInteractionService interaction,
-            IClientStore clientStore,//Ìá¹©¿Í»§¶Ë²Ö´¢·þÎñ½Ó¿Ú ÔÚÍË³ö»ñÈ¡²ÎÊýÐèÒª
+            IClientStore clientStore,//ï¿½á¹©ï¿½Í»ï¿½ï¿½Ë²Ö´ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òª
             IAuthenticationSchemeProvider schemeProvider,
             IEventService events,
             TestUserStore users = null)
@@ -51,19 +51,19 @@ namespace QuickstartIdentityServer.Controllers
         }
 
         /// <summary>
-        /// µÇÂ¼ÏÔÊ¾Ò³Ãæ   ÆäÊµÒ²ÊÇÍ¨¹ýÊÚÈ¨»Øµ÷µØÖ·²éÕÒÊÚÈ¨¿Í»§¶ËÅäÖÃÐÅÏ¢  Èç¹ûÊÚÈ¨¿Í»§¶ËÅäÖÃÐÅÏ¢ÖÐÊÇÀ©Õ¹µÇÂ¼µÄ»°×ªµ½²»Í¬µÄÒ³Ãæ
+        /// ï¿½ï¿½Â¼ï¿½ï¿½Ê¾Ò³ï¿½ï¿½   ï¿½ï¿½ÊµÒ²ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½È¨ï¿½Øµï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢  ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½Â¼ï¿½Ä»ï¿½×ªï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½Ò³ï¿½ï¿½
         /// </summary>
-        /// <param name="returnUrl">µÇÂ¼»Øµ÷Ìø×ªµØÖ·</param>
+        /// <param name="returnUrl">ï¿½ï¿½Â¼ï¿½Øµï¿½ï¿½ï¿½×ªï¿½ï¿½Ö·</param>
         /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Login(string returnUrl)
         {
-            // ¹¹½¨µÇÂ¼Ò³ÃæÄ£ÐÍ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼Ò³ï¿½ï¿½Ä£ï¿½ï¿½
             var vm = await BuildLoginViewModelAsync(returnUrl);
 
             if (vm.IsExternalLoginOnly)
             {
-                // Ìá¹©À©Õ¹µÇÂ¼·þÎñÄ£ÐÍ
+                // ï¿½á¹©ï¿½ï¿½Õ¹ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
                 return RedirectToAction("Challenge", "External", new { provider = vm.ExternalLoginScheme, returnUrl });
             }
 
@@ -71,7 +71,7 @@ namespace QuickstartIdentityServer.Controllers
         }
 
         /// <summary>
-        /// ÓÃ»§µÇÂ¼Ìá½»
+        /// ï¿½Ã»ï¿½ï¿½ï¿½Â¼ï¿½á½»
         /// </summary>
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -169,7 +169,7 @@ namespace QuickstartIdentityServer.Controllers
         }
         #region
         /// <summary>
-        /// À©Õ¹ÊÚÈ¨
+        /// ï¿½ï¿½Õ¹ï¿½ï¿½È¨
         /// </summary>
         [HttpGet]
         public async Task<IActionResult> ExternalLoginCallback()
@@ -178,16 +178,16 @@ namespace QuickstartIdentityServer.Controllers
             var result = await HttpContext.AuthenticateAsync(IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme);
             if (result?.Succeeded != true)
             {
-                throw new Exception("Íâ²¿ÊÚÈ¨´íÎó");
+                throw new Exception("ï¿½â²¿ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½");
             }
 
-            // »ñÈ¡Íâ²¿µÇÂ¼µÄClaimsÐÅÏ¢
+            // ï¿½ï¿½È¡ï¿½â²¿ï¿½ï¿½Â¼ï¿½ï¿½Claimsï¿½ï¿½Ï¢
             var externalUser = result.Principal;
             var claims = externalUser.Claims.ToList();
 
-            //³¢ÊÔÈ·¶¨Íâ²¿ÓÃ»§µÄÎ¨Ò»ID£¨ÓÉÌá¹©Õß·¢³ö£©
-            //×î³£¼ûµÄË÷Åâ£¬Ë÷ÅâÀàÐÍ·Ö£¬nameidentifier
-            //È¡¾öÓÚÍâ²¿Ìá¹©Õß£¬¿ÉÄÜÊ¹ÓÃÆäËûÒ»Ð©Ë÷ÅâÀàÐÍ
+            //ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½â²¿ï¿½Ã»ï¿½ï¿½ï¿½Î¨Ò»IDï¿½ï¿½ï¿½ï¿½ï¿½á¹©ï¿½ß·ï¿½ï¿½ï¿½ï¿½ï¿½
+            //ï¿½î³£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·Ö£ï¿½nameidentifier
+            //È¡ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½á¹©ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ð©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             var userIdClaim = claims.FirstOrDefault(x => x.Type == JwtClaimTypes.Subject);
             if (userIdClaim == null)
             {
@@ -195,33 +195,33 @@ namespace QuickstartIdentityServer.Controllers
             }
             if (userIdClaim == null)
             {
-                throw new Exception("Î´ÖªÓÃ»§");
+                throw new Exception("Î´Öªï¿½Ã»ï¿½");
             }
 
-            //´Ó¼¯ºÏÖÐÒÆ³ýÓÃ»§IDË÷ÅâË÷ÅâºÍÒÆ¶¯ÓÃ»§±êÊ¶ÊôÐÔ»¹ÉèÖÃÍâ²¿Éí·ÝÑéÖ¤Ìá¹©³ÌÐòµÄÃû³Æ¡£
+            //ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½Ã»ï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½á¹©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½
             claims.Remove(userIdClaim);
             var provider = result.Properties.Items["scheme"];
             var userId = userIdClaim.Value;
 
-            // ÕâÊÇ×îÓÐ¿ÉÄÜÐèÒª×Ô¶¨ÒåÂß¼­À´Æ¥ÅäÄúµÄÓÃ»§µÄÍâ²¿Ìá¹©ÕßµÄÉí·ÝÑéÖ¤½á¹û£¬²¢ÎªÓÃ»§Ìá¹©ÄúËùÈÏÎªºÏÊÊµÄ½á¹û¡£
-            //  ¼ì²éÍâ²¿ÓÃ»§ÒÑ¾­ÉèÖÃ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½â²¿ï¿½á¹©ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ã»ï¿½ï¿½á¹©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ÊµÄ½ï¿½ï¿½ï¿½ï¿½
+            //  ï¿½ï¿½ï¿½ï¿½â²¿ï¿½Ã»ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½
             var user = "";// _users.FindByExternalProvider(provider, userId);
             if (user == null)
             {
-                //´ËÊ¾ÀýÖ»ÊÇ×Ô¶¯Ìá¹©ÐÂµÄÍâ²¿ÓÃ»§£¬ÁíÒ»ÖÖ³£¼ûµÄ·½·¨ÊÇÊ×ÏÈÆô¶¯×¢²á¹¤×÷Á÷
+                //ï¿½ï¿½Ê¾ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½á¹©ï¿½Âµï¿½ï¿½â²¿ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Ö³ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½á¹¤ï¿½ï¿½ï¿½ï¿½
                 //user = _users.AutoProvisionUser(provider, userId, claims);
             }
 
             var additionalClaims = new List<Claim>();
 
-            // Èç¹ûÍâ²¿ÏµÍ³·¢ËÍÁË»á»°IDÇëÇó£¬Çë¸´ÖÆËü¡£ËùÒÔÎÒÃÇ¿ÉÒÔÓÃËü½øÐÐµ¥µãµÇÂ¼
+            // ï¿½ï¿½ï¿½ï¿½â²¿ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½Ë»á»°IDï¿½ï¿½ï¿½ï¿½ï¿½ë¸´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Â¼
             var sid = claims.FirstOrDefault(x => x.Type == JwtClaimTypes.SessionId);
             if (sid != null)
             {
                 additionalClaims.Add(new Claim(JwtClaimTypes.SessionId, sid.Value));
             }
 
-            //Èç¹ûÍâ²¿¹©Ó¦ÉÌ·¢³öid_token£¬ÎÒÃÇ»á°ÑËüsignout
+            //ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½Ó¦ï¿½Ì·ï¿½ï¿½ï¿½id_tokenï¿½ï¿½ï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½ï¿½signout
             AuthenticationProperties props = null;
             var id_token = result.Properties.GetTokenValue("id_token");
             if (id_token != null)
@@ -230,14 +230,14 @@ namespace QuickstartIdentityServer.Controllers
                 props.StoreTokens(new[] { new AuthenticationToken { Name = "id_token", Value = id_token } });
             }
 
-            // ÎªÓÃ»§°ä·¢Éí·ÝÑéÖ¤cookie
+            // Îªï¿½Ã»ï¿½ï¿½ä·¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤cookie
             //  await _events.RaiseAsync(new UserLoginSuccessEvent(provider, userId, user.SubjectId, user.Username));
             // await HttpContext.SignInAsync(user.SubjectId, user.Username, provider, props, additionalClaims.ToArray());
 
-            // É¾³ýÍâ²¿ÑéÖ¤ÆÚ¼äÊ¹ÓÃµÄÁÙÊ±cookie
+            // É¾ï¿½ï¿½ï¿½â²¿ï¿½ï¿½Ö¤ï¿½Ú¼ï¿½Ê¹ï¿½Ãµï¿½ï¿½ï¿½Ê±cookie
             await HttpContext.SignOutAsync(IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme);
 
-            // ÑéÖ¤·µ»ØURL²¢ÖØ¶¨Ïò»ØÊÚÈ¨¶Ëµã»ò±¾µØÒ³Ãæ
+            // ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Ëµï¿½ò±¾µï¿½Ò³ï¿½ï¿½
             var returnUrl = result.Properties.Items["returnUrl"];
             if (_interaction.IsValidReturnUrl(returnUrl) || Url.IsLocalUrl(returnUrl))
             {
@@ -251,10 +251,10 @@ namespace QuickstartIdentityServer.Controllers
 
 
 
-        #region ÍË³ö
+        #region ï¿½Ë³ï¿½
 
         /// <summary>
-        /// ÍË³öÒ³ÃæÏÔÊ¾
+        /// ï¿½Ë³ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Ê¾
         /// </summary>
         //[HttpGet]
         //public async Task<IActionResult> Logout(string logoutId)
@@ -264,7 +264,7 @@ namespace QuickstartIdentityServer.Controllers
 
         //    if (vm.ShowLogoutPrompt == false)
         //    {
-        //        //ÅäÖÃÊÇ·ñÐèÒªÍË³öÈ·ÈÏÌáÊ¾
+        //        //ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½Ë³ï¿½È·ï¿½ï¿½ï¿½ï¿½Ê¾
         //        return await Logout(vm);
         //    }
 
@@ -272,7 +272,7 @@ namespace QuickstartIdentityServer.Controllers
         //}
 
         /// <summary>
-        /// ÍË³ö»Øµ÷ÓÃÒ³Ãæ
+        /// ï¿½Ë³ï¿½ï¿½Øµï¿½ï¿½ï¿½Ò³ï¿½ï¿½
         /// </summary>
         //[HttpPost]
         //[ValidateAntiForgeryToken]
@@ -282,19 +282,19 @@ namespace QuickstartIdentityServer.Controllers
         //    var user = HttpContext.User;
         //    if (user?.Identity.IsAuthenticated == true)
         //    {
-        //        //É¾³ý±¾µØÊÚÈ¨Cookies
+        //        //É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨Cookies
         //        await HttpContext.SignOutAsync();
         //        await _events.RaiseAsync(new UserLogoutSuccessEvent(user.GetSubjectId(), user.GetName()));
         //    }
 
-        //    // ¼ì²éÊÇ·ñÐèÒªÔÚÉÏÓÎÉí·ÝÌá¹©³ÌÐòÉÏ´¥·¢Ç©Ãû
+        //    // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¹©ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½Ç©ï¿½ï¿½
         //    if (vm.TriggerExternalSignout)
         //    {
-        //        // ¹¹½¨Ò»¸ö·µ»ØURL£¬ÒÔ±ãÉÏÓÎÌá¹©Õß½«ÖØ¶¨Ïò»Ø
-        //        // ÔÚÓÃ»§×¢Ïúºó¸øÎÒÃÇ¡£ÕâÊ¹ÎÒÃÇÄÜ¹»
-        //        // Íê³Éµ¥µãÇ©³ö´¦Àí¡£
+        //        // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¹©ï¿½ß½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½
+        //        // ï¿½ï¿½ï¿½Ã»ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Ü¹ï¿½
+        //        // ï¿½ï¿½Éµï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         //        string url = Url.Action("Logout", new { logoutId = vm.LogoutId });
-        //        // Õâ½«´¥·¢ÖØ¶¨Ïòµ½Íâ²¿Ìá¹©Õß£¬ÒÔ±ãÇ©³ö
+        //        // ï¿½â½«ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½â²¿ï¿½á¹©ï¿½ß£ï¿½ï¿½Ô±ï¿½Ç©ï¿½ï¿½
         //        return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
         //    }
 
@@ -310,21 +310,20 @@ namespace QuickstartIdentityServer.Controllers
         /// Show logout page
         /// </summary>
         //[HttpGet]
-        //public async Task<IActionResult> Logout(string logoutId)
-        //{
-        //    // build a model so the logout page knows what to display
-        //    var vm = await BuildLogoutViewModelAsync(logoutId);
+        public async Task<IActionResult> Logout(string logoutId)
+        {
+            // build a model so the logout page knows what to display
+            var vm = await BuildLogoutViewModelAsync(logoutId);
 
-        //    if (vm.ShowLogoutPrompt == false)
-        //    {
-        //        // if the request for logout was properly authenticated from IdentityServer, then
-        //        // we don't need to show the prompt and can just log the user out directly.
-        //        return await Logout(vm);
-        //    }
+            if (vm.ShowLogoutPrompt == false)
+            {
+                // if the request for logout was properly authenticated from IdentityServer, then
+                // we don't need to show the prompt and can just log the user out directly.
+                return await Logout(vm);
+            }
 
-        //    return View(vm);
-        //}
-
+            return View(vm);
+        }
         /// <summary>
         /// Handle logout page postback
         /// </summary>
@@ -355,8 +354,15 @@ namespace QuickstartIdentityServer.Controllers
                 // this triggers a redirect to the external provider for sign-out
                 return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
             }
+            // ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Ëµï¿½ò±¾µï¿½Ò³ï¿½ï¿½
+            // var returnUrl = result.Properties.Items["returnUrl"];
+            // if (_interaction.IsValidReturnUrl(returnUrl) || Url.IsLocalUrl(returnUrl))
+            // {
+            //     return Redirect(returnUrl);
+            // }
 
-            return View("LoggedOut", vm);
+            return Redirect("~/");
+            //return View("LoggedOut", vm);
         }
 
         [HttpGet]

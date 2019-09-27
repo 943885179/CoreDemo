@@ -20,6 +20,6 @@ namespace QuickstartIdentityServer.Controllers
         // if user uses windows auth, should we load the groups from windows
         public static bool IncludeWindowsGroups = false;
 
-        public static string InvalidCredentialsErrorMessage = "Invalid username or password";
+        public static string InvalidCredentialsErrorMessage = "用户名或密码错误";
     }
 }

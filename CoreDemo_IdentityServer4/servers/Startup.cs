@@ -40,6 +40,11 @@ namespace servers
                 options.DefaultChallengeScheme = "oidc";
             })
             .AddCookie("Cookies")
+            .AddQQ("QQ", qqOptions =>
+             {
+                 qqOptions.AppId = "<insert here>";
+                 qqOptions.AppKey = "<insert here>";
+             })
             .AddOpenIdConnect("oidc", options =>
             {
                 options.SignInScheme = "Cookies";

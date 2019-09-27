@@ -20,6 +20,10 @@ namespace servers.Controllers
         {
             return View();
         }
+        public IActionResult Logout()
+        {
+            return SignOut("Cookies", "oidc");
+        }
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

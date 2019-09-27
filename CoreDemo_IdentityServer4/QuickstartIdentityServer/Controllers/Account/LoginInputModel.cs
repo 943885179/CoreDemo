@@ -8,9 +8,9 @@ namespace QuickstartIdentityServer.Controllers
 {
     public class LoginInputModel
     {
-        [Required]
+        [Required(ErrorMessage ="用户名不能为空")]
         public string Username { get; set; }
-        [Required]
+        [Required(ErrorMessage ="密码不能为空")]
         public string Password { get; set; }
         public bool RememberLogin { get; set; }
         public string ReturnUrl { get; set; }
