@@ -69,8 +69,26 @@ namespace QuickstartIdentityServer
                       "api1"
                   }
 
+                },
+                new Client(){
+                    ClientId = "mvc",
+                    ClientName = "MVC Client",
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    RedirectUris = { "https://localhost:5008/signin-oidc" },
+                    PostLogoutRedirectUris = { "https://localhost:5008/signout-callback-oidc" },
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    },
+                    AllowOfflineAccess = true
                 }
-            };
+        };
         }
         public static List<TestUser> GetTestUsers()
         {

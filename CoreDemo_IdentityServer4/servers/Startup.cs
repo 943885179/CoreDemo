@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,20 +41,38 @@ namespace servers
                 options.DefaultChallengeScheme = "oidc";
             })
             .AddCookie("Cookies")
-            .AddQQ("QQ", qqOptions =>
+            /*.AddQQ("QQ", qqOptions =>
              {
                  qqOptions.AppId = "<insert here>";
                  qqOptions.AppKey = "<insert here>";
-             })
+             })*/
+            /*openId授权
+           .AddOpenIdConnect("oidc", options =>
+           {
+               options.SignInScheme = "Cookies";
+
+               options.Authority = "https://localhost:5001";
+               options.RequireHttpsMetadata = false;
+
+               options.ClientId = "ImpLicitClient";
+               options.SaveTokens = true;
+           });*/
             .AddOpenIdConnect("oidc", options =>
             {
                 options.SignInScheme = "Cookies";
 
                 options.Authority = "https://localhost:5001";
-                options.RequireHttpsMetadata = false;
+                options.RequireHttpsMetadata = true;
 
-                options.ClientId = "ImpLicitClient";
+                options.ClientId = "mvc";
+                options.ClientSecret = "secret";
+                options.ResponseType = "code id_token";
+
                 options.SaveTokens = true;
+                options.GetClaimsFromUserInfoEndpoint = true;
+                options.Scope.Add("api1");
+                options.Scope.Add("offline_access");
+                options.ClaimActions.MapJsonKey("website", "website");
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

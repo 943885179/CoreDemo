@@ -441,4 +441,21 @@
         }
       ```
    - AccountService.cs 授权服务
-## QQ第三方登录（引入NugetMicrosoft.AspNetCore.Authentication.QQ）
+## QQ第三方登录（引入Nuget Microsoft.AspNetCore.Authentication.QQ）
+- 添加授权
+  ```csharp
+   JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+            })
+            .AddCookie("Cookies")
+            .AddQQ("QQ", qqOptions =>
+             {
+                 qqOptions.AppId = "<insert here>";
+                 qqOptions.AppKey = "<insert here>";
+             })
+    ```
+## 使用Hybrid Flow并添加API访问控制
