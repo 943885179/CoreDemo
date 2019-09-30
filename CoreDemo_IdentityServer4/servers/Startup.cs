@@ -67,10 +67,12 @@ namespace servers
                 options.ClientId = "mvc";
                 options.ClientSecret = "secret";
                 options.ResponseType = "code id_token";
-
+                options.SignedOutRedirectUri = "https://localhost:5008";
                 options.SaveTokens = true;
+                 //布尔值来设置处理程序是否应该转到用户信息端点检索。额外索赔或不在id_token创建一个身份收到令牌端点。默认为“false”
                 options.GetClaimsFromUserInfoEndpoint = true;
                 options.Scope.Add("api1");
+                options.Scope.Add("api2");
                 options.Scope.Add("offline_access");
                 options.ClaimActions.MapJsonKey("website", "website");
             });

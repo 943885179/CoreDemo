@@ -1,4 +1,5 @@
 ﻿using IdentityServer4;
+using IdentityServer4.EntityFramework.Entities;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System;
@@ -6,6 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using ApiResource = IdentityServer4.Models.ApiResource;
+using Client = IdentityServer4.Models.Client;
+using IdentityResource = IdentityServer4.Models.IdentityResource;
+using Secret = IdentityServer4.Models.Secret;
 
 namespace QuickstartIdentityServer
 {
@@ -17,7 +22,9 @@ namespace QuickstartIdentityServer
         {
             return new List<ApiResource>
             {
-                new ApiResource("api1", "My API")
+                new ApiResource("api1", "My API"),
+                
+                new ApiResource("api2", "My API2")
             };
         }
         //定义 客户端
@@ -78,13 +85,15 @@ namespace QuickstartIdentityServer
                     {
                         new Secret("secret".Sha256())
                     },
+                    RequireConsent=true,
                     RedirectUris = { "https://localhost:5008/signin-oidc" },
                     PostLogoutRedirectUris = { "https://localhost:5008/signout-callback-oidc" },
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "api1"
+                        "api1",
+                        "api2"
                     },
                     AllowOfflineAccess = true
                 }
@@ -123,5 +132,6 @@ namespace QuickstartIdentityServer
                 new IdentityResources.Phone()
             };
         }
+
     }
 }

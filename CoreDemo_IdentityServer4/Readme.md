@@ -436,7 +436,9 @@
                 return Redirect(returnUrl);
             }
 
-            return Redirect("~/");
+            var refererUrl = Request.Headers["Referer"].ToString();
+            return Redirect(refererUrl);//返回原网页
+            //return Redirect("~/");
             //return View("LoggedOut", vm);
         }
       ```
@@ -459,3 +461,146 @@
              })
     ```
 ## 使用Hybrid Flow并添加API访问控制
+- 客户端添加配置
+```csharp
+     .AddOpenIdConnect("oidc", options =>
+            {
+                options.SignInScheme = "Cookies";
+
+                options.Authority = "https://localhost:5001";
+                options.RequireHttpsMetadata = true;
+
+                options.ClientId = "mvc";
+                options.ClientSecret = "secret";
+                options.ResponseType = "code id_token";
+                options.SignedOutRedirectUri = "https://localhost:5008";
+                options.SaveTokens = true;
+                 //布尔值来设置处理程序是否应该转到用户信息端点检索。额外索赔或不在id_token创建一个身份收到令牌端点。默认为“false”
+                options.GetClaimsFromUserInfoEndpoint = true;
+                options.Scope.Add("api1");
+                options.Scope.Add("api2");
+                options.Scope.Add("offline_access");
+                options.ClaimActions.MapJsonKey("website", "website");
+            });
+```
+- 认证端添加client
+  ```csharp
+   new Client(){
+                    ClientId = "mvc",
+                    ClientName = "MVC Client",
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    RequireConsent=false,
+                    RedirectUris = { "https://localhost:5008/signin-oidc" },
+                    PostLogoutRedirectUris = { "https://localhost:5008/signout-callback-oidc" },
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1",
+                        "api2"
+                    },
+                    AllowOfflineAccess = true
+                }
+  ```
+- 客户端调用api1的接口
+  ```csharp
+   public async Task<ActionResult<string>> CallApi()
+        {
+            var accessToken = await HttpContext.GetTokenAsync("access_token"); // 获取token
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var content = await client.GetStringAsync("https://localhost:5005/api/Values");
+
+            return JArray.Parse(content).ToString();
+        }
+  ```
+## 配置持久化到数据库
+- Nuget 添加`IdentityServer4.EntityFramwork`
+- 添加appsettings.json
+  ```json
+  "ConnectionStrings": {
+    "Default":"Server=.;Database=Identity;User ID=sa;Password=123;"
+    // "Default": "Data Source=localhost;Database=Identity;User ID=root;Password=123;pooling=true;CharSet=utf8;port=3306;sslmode=none"
+  },
+  ```
+- 修改Startup.cs
+  ```csharp
+    var op = Configuration.GetConnectionString("Default");
+            // services.AddDbContext<MyDbContext>(options => options.UseMySql(op));
+    var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+           
+     services.AddIdentityServer()//赖注入系统中注册IdentityServer,注入DI
+                .AddDeveloperSigningCredential()//在每次启动时，为令牌签名创建了一个临时密钥。在生成环境需要一个持久化的密钥
+                /*.AddInMemoryIdentityResources(Config.GetIdentityResources())
+                .AddInMemoryApiResources(Config.GetApis())
+                .AddInMemoryClients(Config.GetClients())*/
+                .AddTestUsers(Config.GetTestUsers())
+                .AddConfigurationStore(options => {
+                    options.ConfigureDbContext=b=>b.UseSqlServer(op,
+                            sql => sql.MigrationsAssembly(migrationsAssembly));
+                      })
+                .AddOperationalStore(options => {
+                    options.ConfigureDbContext = b => b.UseSqlServer(op, sql => sql.MigrationsAssembly(migrationsAssembly));
+                    options.EnableTokenCleanup = true;
+                    options.TokenCleanupInterval = 30;
+                });
+  ```
+- 生成sql并且将Config的配置信息存放到数据库中
+  - startup.cs添加
+    ```csharp
+    private void InitializeDatabase(IApplicationBuilder app)
+            {
+                using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
+
+                    var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
+                    context.Database.Migrate();
+                    if (!context.Clients.Any())
+                    {
+                        foreach (var client in Config.GetClients())
+                        {
+                            context.Clients.Add(client.ToEntity());
+                        }
+                        context.SaveChanges();
+                    }
+
+                    if (!context.IdentityResources.Any())
+                    {
+                        foreach (var resource in Config.GetIdentityResources())
+                        {
+                            context.IdentityResources.Add(resource.ToEntity());
+                        }
+                        context.SaveChanges();
+                    }
+
+                    if (!context.ApiResources.Any())
+                    {
+                        foreach (var resource in Config.GetApis())
+                        {
+                            context.ApiResources.Add(resource.ToEntity());
+                        }
+                        context.SaveChanges();
+                    }
+                }
+            }
+    ```
+    -  调用Configure方法中添加 `InitializeDatabase(app);`
+    - 右键项目编辑项目文件，添加如下代码后关闭重新生成
+    ```csharp
+     <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+    </ItemGroup>
+    ```
+    - 打开shell,输入dotnet ef看看是否安装完成
+    - 创建迁移日志
+    ```
+        dotnet ef migrations add InitialIdentityServerPersistedGrantDbMigration -c PersistedGrantDbContext -o Data/Migrations/IdentityServer/PersistedGrantDb
+        dotnet ef migrations add InitialIdentityServerConfigurationDbMigration -c ConfigurationDbContext -o Data/Migrations/IdentityServer/ConfigurationDb
+    ```
+    - 查看数据库上是否生成表结构和数据（使Mysql需要安装mysql.data，并且高版本mysql需要配置）
+    - 

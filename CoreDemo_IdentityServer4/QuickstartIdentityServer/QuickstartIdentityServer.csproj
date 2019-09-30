@@ -9,14 +9,19 @@
 
   <ItemGroup>
     <PackageReference Include="identityserver4" Version="2.5.3" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.5.3" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="2.5.3" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="MySql.Data" Version="8.0.17" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Views\" />
   </ItemGroup>
-
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+  </ItemGroup>
 </Project>

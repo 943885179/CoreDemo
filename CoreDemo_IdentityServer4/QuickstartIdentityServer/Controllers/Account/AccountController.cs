@@ -31,13 +31,13 @@ namespace QuickstartIdentityServer.Controllers
         private readonly IClientStore _clientStore;
         private readonly IAuthenticationSchemeProvider _schemeProvider;
         private readonly IEventService _events;
-       //  DI �û�������ؽӿ� �Լ� IdentityServer4��ط��񼸿�  IOC����
-        public AccountController( 
-            //�������� ����ע�� �û����񽻻���ؽӿ� Ȼż
+        private readonly MyDbContext _db;
+        public AccountController(
             IIdentityServerInteractionService interaction,
-            IClientStore clientStore,//�ṩ�ͻ��˲ִ�����ӿ� ���˳���ȡ������Ҫ
+            IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider,
             IEventService events,
+            MyDbContext db,
             TestUserStore users = null)
         {
             // if the TestUserStore is not in DI, then we'll just use the global users collection
@@ -48,22 +48,22 @@ namespace QuickstartIdentityServer.Controllers
             _clientStore = clientStore;
             _schemeProvider = schemeProvider;
             _events = events;
+            _db = db;
         }
 
         /// <summary>
-        /// ��¼��ʾҳ��   ��ʵҲ��ͨ����Ȩ�ص���ַ������Ȩ�ͻ���������Ϣ  �����Ȩ�ͻ���������Ϣ������չ��¼�Ļ�ת����ͬ��ҳ��
+        /// 登录
         /// </summary>
-        /// <param name="returnUrl">��¼�ص���ת��ַ</param>
+        /// <param name="returnUrl">回调地址</param>
         /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Login(string returnUrl)
         {
-            // ������¼ҳ��ģ��
+            //获取
             var vm = await BuildLoginViewModelAsync(returnUrl);
 
             if (vm.IsExternalLoginOnly)
             {
-                // �ṩ��չ��¼����ģ��
                 return RedirectToAction("Challenge", "External", new { provider = vm.ExternalLoginScheme, returnUrl });
             }
 
@@ -71,7 +71,7 @@ namespace QuickstartIdentityServer.Controllers
         }
 
         /// <summary>
-        /// �û���¼�ύ
+        /// 登录验证
         /// </summary>
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -110,6 +110,7 @@ namespace QuickstartIdentityServer.Controllers
             if (ModelState.IsValid)
             {
                 // validate username/password against in-memory store
+                /*测试用户
                 if (_users.ValidateCredentials(model.Username, model.Password))
                 {
                     var user = _users.FindByUsername(model.Username);
@@ -158,7 +159,55 @@ namespace QuickstartIdentityServer.Controllers
                         throw new Exception("invalid return URL");
                     }
                 }
+                */
+                if (_db.User.Any(o=>o.Username==model.Username && o.Passworld==model.Password))
+                {
+                    var user = _db.User.First(o => o.Username == model.Username && o.Passworld == model.Password);
+                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.Username, user.SubjectId, user.Username, clientId: context?.ClientId));
 
+                    // only set explicit expiration here if user chooses "remember me". 
+                    // otherwise we rely upon expiration configured in cookie middleware.
+                    AuthenticationProperties props = null;
+                    if (AccountOptions.AllowRememberLogin && model.RememberLogin)
+                    {
+                        props = new AuthenticationProperties
+                        {
+                            IsPersistent = true,
+                            ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
+                        };
+                    };
+
+                    // issue authentication cookie with subject ID and username
+                    await HttpContext.SignInAsync(user.SubjectId, user.Username, props);
+
+                    if (context != null)
+                    {
+                        if (await _clientStore.IsPkceClientAsync(context.ClientId))
+                        {
+                            // if the client is PKCE then we assume it's native, so this change in how to
+                            // return the response is for better UX for the end user.
+                            return View("Redirect", new RedirectViewModel { RedirectUrl = model.ReturnUrl });
+                        }
+
+                        // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
+                        return Redirect(model.ReturnUrl);
+                    }
+
+                    // request for a local page
+                    if (Url.IsLocalUrl(model.ReturnUrl))
+                    {
+                        return Redirect(model.ReturnUrl);
+                    }
+                    else if (string.IsNullOrEmpty(model.ReturnUrl))
+                    {
+                        return Redirect("~/");
+                    }
+                    else
+                    {
+                        // user might have clicked on a malicious link - should be logged
+                        throw new Exception("invalid return URL");
+                    }
+                }
                 await _events.RaiseAsync(new UserLoginFailureEvent(model.Username, "invalid credentials", clientId:context?.ClientId));
                 ModelState.AddModelError(string.Empty, AccountOptions.InvalidCredentialsErrorMessage);
             }
@@ -251,10 +300,10 @@ namespace QuickstartIdentityServer.Controllers
 
 
 
-        #region �˳�
+        #region 
 
         /// <summary>
-        /// �˳�ҳ����ʾ
+        /// 
         /// </summary>
         //[HttpGet]
         //public async Task<IActionResult> Logout(string logoutId)
@@ -343,6 +392,7 @@ namespace QuickstartIdentityServer.Controllers
                 await _events.RaiseAsync(new UserLogoutSuccessEvent(User.GetSubjectId(), User.GetDisplayName()));
             }
 
+            // 检查是否需要在上游身份提供程序上触发签名
             // check if we need to trigger sign-out at an upstream identity provider
             if (vm.TriggerExternalSignout)
             {
@@ -354,14 +404,15 @@ namespace QuickstartIdentityServer.Controllers
                 // this triggers a redirect to the external provider for sign-out
                 return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
             }
-            // ��֤����URL���ض������Ȩ�˵�򱾵�ҳ��
             // var returnUrl = result.Properties.Items["returnUrl"];
             // if (_interaction.IsValidReturnUrl(returnUrl) || Url.IsLocalUrl(returnUrl))
             // {
             //     return Redirect(returnUrl);
             // }
 
-            return Redirect("~/");
+            var refererUrl = Request.Headers["Referer"].ToString();
+            return Redirect(refererUrl);
+           // return Redirect("~/");
             //return View("LoggedOut", vm);
         }
 
