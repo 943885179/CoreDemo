@@ -73,7 +73,8 @@ namespace QuickstartIdentityServer
                       IdentityServerConstants.StandardScopes.Email,
                       IdentityServerConstants.StandardScopes.Address,
                       IdentityServerConstants.StandardScopes.Phone,
-                      "api1"
+                      "api1",
+                        "api2"
                   }
 
                 },

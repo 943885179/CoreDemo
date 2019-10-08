@@ -46,7 +46,7 @@ namespace servers
                  qqOptions.AppId = "<insert here>";
                  qqOptions.AppKey = "<insert here>";
              })*/
-            /*openId授权
+            //openId授权
            .AddOpenIdConnect("oidc", options =>
            {
                options.SignInScheme = "Cookies";
@@ -56,7 +56,7 @@ namespace servers
 
                options.ClientId = "ImpLicitClient";
                options.SaveTokens = true;
-           });*/
+           });/* 
             .AddOpenIdConnect("oidc", options =>
             {
                 options.SignInScheme = "Cookies";
@@ -75,7 +75,7 @@ namespace servers
                 options.Scope.Add("api2");
                 options.Scope.Add("offline_access");
                 options.ClaimActions.MapJsonKey("website", "website");
-            });
+            });*/
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
