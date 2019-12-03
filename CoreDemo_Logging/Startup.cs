@@ -29,7 +29,7 @@ namespace CoreDemo_Logging
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory logger)
         {
             if (env.IsDevelopment())
             {
@@ -40,7 +40,7 @@ namespace CoreDemo_Logging
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            logger.AddLog4Net();
             app.UseHttpsRedirection();
             app.UseMvc();
         }

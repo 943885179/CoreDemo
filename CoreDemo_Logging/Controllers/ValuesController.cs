@@ -21,6 +21,11 @@ namespace CoreDemo_Logging.Controllers
         public IEnumerable<string> Get()
         {
             logger.LogWarning("Warning");
+            logger.LogError("Error");
+            logger.LogDebug("Debug");
+            //方法二：生成logger
+            var loggerNew = new LoggerFactory().AddLog4Net().CreateLogger("Logs");
+            loggerNew.LogError($"{DateTime.Now}错误");
             return new string[] { "value1", "value2" };
         }
     }

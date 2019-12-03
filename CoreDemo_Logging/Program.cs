@@ -20,6 +20,11 @@ namespace CoreDemo_Logging
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+           /* .ConfigureLogging((context, logger) =>{
+                logger.AddFilter("System", LogLevel.Warning);
+                logger.AddFilter("Microsoft", LogLevel.Warning);
+                logger.AddLog4Net();
+            })*/
             .ConfigureLogging(option=> {
                 option.ClearProviders();
                 option.AddConsole();

@@ -604,3 +604,18 @@
     ```
     - 查看数据库上是否生成表结构和数据（使Mysql需要安装mysql.data，并且高版本mysql需要配置）
     - 
+
+ApplicationDbContext-负责与ASP.NET Identity相关的用户，因此表
+dbo.AspNetRoleClaims
+dbo.AspNetRoles
+dbo.AspNetUserClaims
+dbo.AspNetUserLogins
+dbo.AspNetUserRoles
+dbo.AspNetUsers
+dbo.AspNetUserTokens
+PersistedGrantDbContext-负责存储同意，授权码，刷新令牌和参考令牌
+
+dbo.PersistedGrants
+ConfigurationDbContext-负责数据库中剩余的所有其他内容
+
+因此，关于迁移，如果我更新任何AspNet身份模型（即ApplicationUser），那么我将在ApplicationDbContext上运行迁移。任何客户端表或其他作用域将在ConfigurationDbContext上运行。访问实体（或表）将是相应的上下文。
