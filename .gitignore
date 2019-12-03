@@ -69,3 +69,5 @@ obj
 /CoreDemo_Sql/bin/Debug/netcoreapp2.2
 /CoreDemo_StackexchageRedis/.vs/CoreDemo_StackexchageRedis
 /CoreDemo_StackexchageRedis/bin/Debug/netcoreapp2.2
+/CoreDemo_Filter/.vs/CoreDemo_Filter
+/CoreDemo_Filter/bin/Debug/netcoreapp3.0
