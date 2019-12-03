@@ -1,0 +1,49 @@
+﻿{
+  "ReRoutes": [
+
+    {
+
+      "DownstreamPathTemplate": "/api",
+
+      "DownstreamScheme": "https",
+
+      "DownstreamPort": 44323,
+
+      "DownstreamHost": "localhost",
+
+      "UpstreamPathTemplate": "/MapApi",
+
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "QoSOptions": {
+
+        "ExceptionsAllowedBeforeBreaking": 3,
+
+        "DurationOfBreak": 10,
+
+        "TimeoutValue": 5000
+
+      },
+
+      "HttpHandlerOptions": {
+
+        "AllowAutoRedirect": false,
+
+        "UseCookieContainer": false
+
+      },
+
+      "AuthenticationOptions": {
+
+        "AuthenticationProviderKey": "",
+
+        "AllowedScopes": []
+
+      }
+    }
+  ],
+  "GloabalConfiguration": {
+    "RequestIdKey": "OcrequestId",
+    "AdministrationPath": "/administration"
+  }
+}
