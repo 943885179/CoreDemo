@@ -1,0 +1,43 @@
+﻿syntax = "proto3"; //指定使用pb3
+
+option csharp_namespace = "CoreDemo_GrpcService"; //命名空间
+
+import "google/protobuf/empty.proto";
+package User;
+service User{
+     rpc GetUser(UserRequest) returns(UserResult);
+     rpc GetUserType(UserType) returns(UserType);
+     rpc GetUsers(google.protobuf.Empty) returns(UserResult);
+     rpc GetUserDetail(UserDetail) returns(UserResult);
+}//google.protobuf.Empty
+message UserRequest{
+    string message=1;
+}
+message UserResult{
+    string name=1;
+    int32 age=2;
+}
+message UserType{
+    enum PhoneType //枚举消息类型
+    {
+        MOBILE = 0; //proto3版本中，首成员必须为0，成员不应有相同的值
+        HOME = 1;
+        WORK = 2;
+    }
+    message PhoneNumber
+    {
+        string number = 1;
+        PhoneType type = 2;
+    }
+    repeated PhoneNumber phones = 4; //phones为数组
+    map<string, Skill> skills = 5;
+}
+message UserDetail{
+	message Detail{
+		string code=1;
+	}
+	Detail detail=1;
+}
+message Skill {
+    string name = 1;
+}

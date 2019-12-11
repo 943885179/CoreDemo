@@ -73,3 +73,9 @@ obj
 /CoreDemo_Filter/bin/Debug/netcoreapp3.0
 /CoreDemo_Core3/bin/Debug/netcoreapp3.0
 /CoreDemo_Core3/.vs/CoreDemo_Core3
+/CoreDemo_GrpcService/.vs/CoreDemo_GrpcService
+/CoreDemo_GrpcService/.vscode
+/CoreDemo_GrpcService/bin/Debug/netcoreapp3.0
+/CoreDemo_GrpsClient/.vscode
+/CoreDemo_GrpsClient/bin/Debug/netcoreapp3.0
+/CoreStu - 快捷方式.lnk
